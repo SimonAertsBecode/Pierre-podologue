@@ -57,7 +57,7 @@ const Footer = () => {
                <p>Rue Victor Allard 147 1180 Uccle</p>
                <section className='google-map-container'>
                   <GoogleMapReact
-                     bootstrapURLKeys={{ key: 'AIzaSyBeVbF2AmR88EwR-Bqm8uQuNEm5hM-Dz-o' }}
+                     bootstrapURLKeys={{ key: `${process.env.REACT_APP_API_KEY}` }}
                      defaultCenter={coordinate.Schaerbeek}
                      defaultZoom={13}
                      onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps, coordinate.Schaerbeek.lat, coordinate.Schaerbeek.lng)}
