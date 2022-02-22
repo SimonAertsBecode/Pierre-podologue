@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Pierre-podologue/static/css/main.09da4c1e.css",
+    "main.js": "/Pierre-podologue/static/js/main.78add09e.js",
+    "index.html": "/Pierre-podologue/index.html",
+    "main.09da4c1e.css.map": "/Pierre-podologue/static/css/main.09da4c1e.css.map",
+    "main.78add09e.js.map": "/Pierre-podologue/static/js/main.78add09e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09da4c1e.css",
+    "static/js/main.78add09e.js"
+  ]
+}
