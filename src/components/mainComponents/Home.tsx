@@ -9,7 +9,7 @@ const Home = () => {
          <motion.section animate={{ y: 20 }} className='home-page'>
             <h1>Pierre Léonard</h1>
             <section className='presentation'>
-               <img src='selfie.JPG' alt='Pierre Léonard' />
+               <img src='./selfie.JPG' alt='Pierre Léonard' />
                <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium vero, molestias voluptates, illum odit dignissimos pariatur error facilis illo earum, fugiat sint dolores? Sint sunt eligendi, blanditiis cum optio vitae,
                   voluptates temporibus, qui sequi ducimus accusantium eos eaque porro error odit. Accusantium in, deleniti beatae voluptates voluptas dolor sed esse.
