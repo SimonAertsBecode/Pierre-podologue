@@ -1,3 +1,3 @@
 # Pierre podologue
 
-Tu retrouveras ici toutes les infos concernant l'application, pour l'instant il n'y a pas grand chose vu que je viens de commencer. zbi.
+Tu peux voir l'avancement [ici](https://simonaertsbecode.github.io/Pierre-podologue/).
