@@ -1,7 +1,5 @@
-import React from 'react';
-
 const Home = () => {
-   return <div>page d'acceuil</div>;
+   return <main className='home-page'>page d'acceuil</main>;
 };
 
 export default Home;
