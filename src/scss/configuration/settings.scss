@@ -1,4 +1,8 @@
 //*variables
+@function primaryColor($value) {
+   $result: rgba(173, 216, 230, $value);
+   @return $result;
+}
 
 //*body tag settings
 body {
@@ -7,12 +11,15 @@ body {
    min-height: 100vh;
    margin: 0;
    padding: 0;
+   font-family: 'Poppins', sans-serif;
 
    .main-section {
       min-height: 100vh;
-      background-color: antiquewhite;
+      background-color: transparent;
       display: flex;
       flex-direction: column;
       flex: 1;
+      justify-content: center;
+      align-items: center;
    }
 }
