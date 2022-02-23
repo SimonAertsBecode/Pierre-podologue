@@ -21,13 +21,13 @@ const Footer = () => {
    };
 
    return (
-      <footer>
+      <footer id='footer'>
          <section className='main-infos'>
             <p>
                Numéro de télephone: <span>+32 471 46 24 61</span>
             </p>
             <p>
-               Adresse mail: <span>pleonardpodo@gmail.com</span>
+               Adresse mail: <span>pleonard.podologue@hotmail.com</span>
             </p>
          </section>
          <section className='rdv'>

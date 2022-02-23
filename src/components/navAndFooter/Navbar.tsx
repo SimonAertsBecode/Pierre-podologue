@@ -1,4 +1,5 @@
 import { NavLink, Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 const Navbar = () => {
    return (
@@ -24,9 +25,9 @@ const Navbar = () => {
             <NavLink to='conseils' className={(navData) => (navData.isActive ? 'nav-active' : '')}>
                Conseils
             </NavLink>
-            <NavLink to='#' className={(navData) => (navData.isActive ? 'nav-active' : '')}>
+            <HashLink to='#footer' smooth={true}>
                Prendre rendez-vous
-            </NavLink>
+            </HashLink>
          </section>
       </nav>
    );

@@ -23,6 +23,13 @@ nav {
          transition: 0.3s;
       }
 
+      a:last-child {
+         border-radius: 20px;
+         padding: 0 0.4rem;
+         background-color: primaryColor(1);
+         // color: white;
+      }
+
       a:hover {
          transform: scale(1.1);
       }
