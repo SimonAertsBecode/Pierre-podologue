@@ -45,6 +45,9 @@ const Footer = () => {
                      defaultZoom={13}
                      onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps, coordinate.Uccle.lat, coordinate.Uccle.lng)}
                      yesIWantToUseGoogleMapApiInternals
+                     onClick={() => {
+                        window.open(`https://maps.google.com?q=${coordinate.Schaerbeek.lat},${coordinate.Schaerbeek.lng}`);
+                     }}
                   ></GoogleMapReact>
                </section>
             </section>
@@ -62,6 +65,9 @@ const Footer = () => {
                      defaultZoom={13}
                      onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps, coordinate.Schaerbeek.lat, coordinate.Schaerbeek.lng)}
                      yesIWantToUseGoogleMapApiInternals
+                     onClick={() => {
+                        window.open(`https://maps.google.com?q=${coordinate.Uccle.lat},${coordinate.Uccle.lng}`);
+                     }}
                   ></GoogleMapReact>
                </section>
             </section>
