@@ -1,42 +1,44 @@
-import { ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 //** react icons */
 import { ImCross } from 'react-icons/im';
 
-const backdropVariant = {
-   visible: {
-      opacity: 1,
-   },
-   hidden: {
-      opacity: 0,
-   },
-};
-
 const modal = {
    hidden: {
-      y: '-100vh',
+      x: '100vh',
       opacity: 0,
    },
    visible: {
-      y: '30%',
+      x: '0%',
       opacity: 1,
-      transition: { delay: 0.5 },
+      transition: { delay: 0.3 },
    },
 };
 
-const AnmneseModal = ({ showModal, ...props }: { showModal: boolean; children: ReactNode }) => {
+interface props {
+   showModal: boolean;
+   mouseLeaving: any;
+}
+
+const AnmneseModal: React.FC<props> = ({ showModal, mouseLeaving, ...props }) => {
+   console.log(showModal);
    return (
       <AnimatePresence exitBeforeEnter>
          {showModal && (
-            <motion.section className='backdrop' variants={backdropVariant} animate='visible' initial='hidden' exit='hidden'>
-               <motion.section className='modal' variants={modal}>
-                  <button>
-                     <ImCross />
-                  </button>
-
-                  {props.children}
-               </motion.section>
+            <motion.section
+               onMouseLeave={() => {
+                  mouseLeaving(false);
+               }}
+               className='modal'
+               variants={modal}
+               animate='visible'
+               initial='hidden'
+               exit='hidden'
+            >
+               <button>
+                  <ImCross />
+               </button>
+               {props.children}
             </motion.section>
          )}
       </AnimatePresence>
