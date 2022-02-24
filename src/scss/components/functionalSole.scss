@@ -26,8 +26,22 @@
             left: 0;
             width: 100%;
             height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background-color: rgba($color: #000000, $alpha: 0.5);
             z-index: 1;
+
+            .modal {
+               width: 30%;
+               height: 30%;
+               background-color: white;
+
+               button {
+                  position: fixed;
+                  right: 10px;
+               }
+            }
          }
          li {
             padding: 1rem 0;
