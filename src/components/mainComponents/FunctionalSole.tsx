@@ -14,6 +14,15 @@ const FunctionalSole = () => {
       sixthModal: false,
    });
 
+   const renderLi = (index: number, title: string, text?: string) => {
+      return (
+         <>
+            <li data-name={Object.keys(showModal)[index]}>{title}</li>
+            <AnmneseModal showModal={Object.values(showModal)[index]}> {text} </AnmneseModal>
+         </>
+      );
+   };
+
    return (
       <section className='functional-sole'>
          <h3>Semelle fonctionnel</h3>
@@ -29,14 +38,20 @@ const FunctionalSole = () => {
                <span>L'examen biomécanique</span> en cabinet permet de comprendre le fonctionnement global du patient et de reconnaître si oui ou non un appareillage via semelles fonctionnelles peut aider dans sa{' '}
                <Link to='/pathologie'>pathologie</Link>. Cet examen biomécanique se déroule en plusieurs étapes :
             </p>
-            <ol>
-               <li>Anamnèse</li>
-               <AnmneseModal showModal={showModal.firstModal}> Hello </AnmneseModal>
-               <li>Analyse statique</li>
-               <li>Examen palpatoire</li>
-               <li>Mesures biométriques</li>
-               <li>Analyse dynamique (marche, course)</li>
-               <li>Conseils spécifiques</li>
+            <ol
+               onClick={(e: React.SyntheticEvent<EventTarget>) => {
+                  if (e.target instanceof HTMLLIElement) {
+                     let name: string = String(e.target.dataset.name);
+                     setShowModal((prevState) => ({ ...prevState, [name]: true }));
+                  }
+               }}
+            >
+               {renderLi(0, 'Anamnèse')}
+               {renderLi(1, 'Analyse statique')}
+               {renderLi(2, 'Examen palpatoire')}
+               {renderLi(3, 'Mesures biométriques')}
+               {renderLi(4, 'Analyse dynamique (marche, course)')}
+               {renderLi(5, 'Conseils spécifiques')}
             </ol>
          </section>
          <section className='steps'></section>
