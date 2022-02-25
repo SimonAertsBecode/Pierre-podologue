@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -32,6 +32,46 @@ const FunctionalSole = () => {
       },
    });
 
+   const diagSteps = [
+      {
+         title: 'Anamnese',
+         description:
+            "L'anamnèse permet de connaître le motif de la plainte, l'historique du patient, d'analyser ses différentes chaussures",
+      },
+      {
+         title: 'Analyse statique',
+         description:
+            "L'analyse statique permet de vérifier les différentes compensations (épaules, dos, hanche, genoux, pied)",
+      },
+      {
+         title: 'Examen palpatoire',
+         description:
+            "L'examen palpatoire permet la mise en évidence de certaines zones douloureuses afin de mieux cibler le traitement.",
+      },
+      {
+         title: 'Mesures biométriques',
+         description:
+            "Ces mesures permettent d'en apprendre plus sur les différentes mobilités du patient, sur la position idéale de son pied et serviront pour la modélisation de la semelle sur logiciel 3D.",
+      },
+      {
+         title: 'Analyse dynamique (marche, course)',
+         description:
+            "L'analyse de marche et course est une analyse de la cinématique (qualité du mouvement) et cinétique (quantification du mouvement) L'analyse de course permet également de savoir si la technique de course est adaptée aux plaintes du patient.",
+      },
+      {
+         title: 'Conseils spécifiques',
+         description:
+            "Conseils de chaussage, d'entraînement, de technique de course, d'échauffement, d'étirement, de renforcement. Souvent, une prise en charge pluridisciplinaire ciblée sera recommandée (kinésithérapie, ostéopathie, médecin du sport…)",
+      },
+   ];
+
+   const [width, setWidth] = useState(0);
+   const carousel = useRef<HTMLDivElement>(null);
+
+   useEffect(() => {
+      if (carousel.current) setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth);
+   }, []);
+
    const handleMouseEvent = (name: string, value: boolean) => {
       setShowModal((prevState) => ({ ...prevState, [name]: { ['status']: value } }));
    };
@@ -64,8 +104,25 @@ const FunctionalSole = () => {
          <h3>Semelle fonctionnel</h3>
          <section className='anamnese'>
             <section className='anamnese-steps'>
-               <motion.section className='carousel'>
-                  <motion.section className='inner-carousel'> coucou</motion.section>
+               <motion.section
+                  className='carousel'
+                  whileTap={{ cursor: 'grabbing' }}
+                  ref={carousel}
+               >
+                  <motion.section
+                     drag='x'
+                     dragConstraints={{ right: 0, left: -width }}
+                     className='inner-carousel'
+                  >
+                     {diagSteps.map((step) => {
+                        return (
+                           <section key={step.title} className='item'>
+                              <h5>{step.title}</h5>
+                              <p>{step.description}</p>
+                           </section>
+                        );
+                     })}
+                  </motion.section>
                </motion.section>
             </section>
             <section className='description'>

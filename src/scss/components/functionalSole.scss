@@ -16,15 +16,40 @@
    }
 
    .anamnese {
-      width: 90%;
+      width: 95%;
       min-height: 100%;
       padding: 0 0 2rem 2rem;
       display: flex;
       flex-direction: row;
-      row-gap: 1.5rem;
+      gap: 3rem;
 
       .anamnese-steps {
-         min-width: 50%;
+         max-width: 50%;
+
+         .carousel {
+            cursor: grab;
+            overflow: hidden;
+            height: min-content;
+
+            .inner-carousel {
+               display: flex;
+               flex-direction: row;
+               background-color: white;
+
+               .item {
+                  min-width: 15rem;
+                  margin: 2rem 2rem;
+                  height: auto;
+                  border-radius: 20px;
+                  background-color: lightblue;
+               }
+            }
+         }
+      }
+
+      .anamnese-description {
+         max-width: 40%;
+         margin-left: 2rem;
       }
 
       p {
@@ -38,12 +63,13 @@
    }
 
    .crafting {
-      width: 90%;
+      width: 95%;
       min-height: 100%;
       padding: 0 0 2rem 2rem;
       display: flex;
       flex-direction: row;
-      row-gap: 1.5rem;
+      gap: 3rem;
+
       .description {
          min-width: 50%;
       }
@@ -59,7 +85,7 @@
 
             .modal {
                position: absolute;
-               right: 1rem;
+               right: -2rem;
                bottom: 1rem;
                width: 40%;
                height: 40%;
