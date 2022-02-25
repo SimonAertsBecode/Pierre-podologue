@@ -4,22 +4,27 @@
    min-height: 80vh;
    margin-bottom: 4rem;
    display: flex;
+   flex-direction: column;
    font-size: 1.1rem;
+   position: relative;
 
-   .anamnese,
-   .crafting {
-      width: 45%;
+   h3,
+   h4 {
+      text-align: center;
+      margin: 1rem 0 0 0;
+      padding: 0;
+   }
+
+   .anamnese {
+      width: 90%;
       min-height: 100%;
       padding: 0 0 2rem 2rem;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       row-gap: 1.5rem;
 
-      h3,
-      h4 {
-         text-align: center;
-         margin: 1rem 0 0 0;
-         padding: 0;
+      .anamnese-steps {
+         min-width: 50%;
       }
 
       p {
@@ -30,19 +35,34 @@
             font-size: 1rem;
          }
       }
-      .steps {
-         background-color: rgba($color: white, $alpha: 0.3);
-         min-height: 100%;
+   }
+
+   .crafting {
+      width: 90%;
+      min-height: 100%;
+      padding: 0 0 2rem 2rem;
+      display: flex;
+      flex-direction: row;
+      row-gap: 1.5rem;
+      .description {
+         min-width: 50%;
+      }
+      .craft-steps {
+         display: flex;
+         justify-content: left;
+         align-items: center;
+         height: 100%;
+         min-width: 50%;
 
          ol {
             display: table;
 
             .modal {
-               position: fixed;
-               left: 15%;
-               top: 50%;
-               width: 30%;
-               height: 30%;
+               position: absolute;
+               right: 1rem;
+               bottom: 1rem;
+               width: 40%;
+               height: 40%;
                background-color: white;
                z-index: 1;
 
@@ -54,23 +74,7 @@
 
             li {
                padding: 1rem;
-            }
-         }
-      }
-   }
-
-   .crafting {
-      .craft-steps {
-         display: flex;
-         justify-content: left;
-         align-items: center;
-         height: 100%;
-
-         ol {
-            display: table;
-
-            li {
-               padding: 1rem;
+               cursor: pointer;
             }
          }
       }

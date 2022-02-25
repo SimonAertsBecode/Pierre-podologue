@@ -25,9 +25,9 @@ const AnmneseModal: React.FC<props> = ({ showModal, mouseLeaving, ...props }) =>
       <AnimatePresence exitBeforeEnter>
          {showModal && (
             <motion.section
-               onMouseLeave={() => {
-                  mouseLeaving(false);
-               }}
+               // onMouseLeave={() => {
+               //    mouseLeaving(false);
+               // }}
                className='modal'
                variants={modal}
                animate='visible'
@@ -37,7 +37,7 @@ const AnmneseModal: React.FC<props> = ({ showModal, mouseLeaving, ...props }) =>
                <button>
                   <ImCross />
                </button>
-               {props.children}
+               <p>{props.children}</p>
             </motion.section>
          )}
       </AnimatePresence>

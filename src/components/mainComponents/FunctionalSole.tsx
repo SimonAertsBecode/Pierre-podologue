@@ -33,7 +33,7 @@ const FunctionalSole = () => {
    });
 
    const handleMouseEvent = (name: string, value: boolean) => {
-      setShowModal((prevState) => ({ ...prevState, [name]: value }));
+      setShowModal((prevState) => ({ ...prevState, [name]: { ['status']: value } }));
    };
 
    const renderLi = (title: string, name: string, text: string): JSX.Element => {
@@ -61,8 +61,13 @@ const FunctionalSole = () => {
 
    return (
       <section className='functional-sole'>
+         <h3>Semelle fonctionnel</h3>
          <section className='anamnese'>
-            <h3>Semelle fonctionnel</h3>
+            <section className='anamnese-steps'>
+               <motion.section className='carousel'>
+                  <motion.section className='inner-carousel'> coucou</motion.section>
+               </motion.section>
+            </section>
             <section className='description'>
                <p>
                   Les semelles fonctionnelles permettent de corriger biomécaniquement la position du
@@ -83,14 +88,9 @@ const FunctionalSole = () => {
                   plusieurs étapes :
                </p>
             </section>
-            <section className='anamnese-steps'>
-               <motion.section className='carousel'>
-                  <motion.section className='inner-carousel'></motion.section>
-               </motion.section>
-            </section>
          </section>
+         <h3>Confection de la semelle</h3>
          <section className='crafting'>
-            <h4>Confection de la semelle</h4>
             <section className='description'>
                <p>
                   Une fois l'examen biomécanique terminé, si le port d'une paire de semelles est
