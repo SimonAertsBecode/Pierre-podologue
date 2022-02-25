@@ -21,7 +21,6 @@ interface props {
 }
 
 const AnmneseModal: React.FC<props> = ({ showModal, mouseLeaving, ...props }) => {
-   console.log(showModal);
    return (
       <AnimatePresence exitBeforeEnter>
          {showModal && (
