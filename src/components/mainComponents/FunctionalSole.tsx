@@ -69,7 +69,10 @@ const FunctionalSole = () => {
    const carousel = useRef<HTMLDivElement>(null);
 
    useEffect(() => {
-      if (carousel.current) setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth);
+      if (carousel.current) {
+         const { scrollWidth, offsetWidth } = carousel.current;
+         setWidth(scrollWidth - offsetWidth);
+      }
    }, []);
 
    const handleMouseEvent = (name: string, value: boolean) => {

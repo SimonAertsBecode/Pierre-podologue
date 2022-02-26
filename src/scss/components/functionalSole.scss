@@ -25,6 +25,7 @@
 
       .anamnese-steps {
          max-width: 50%;
+         order: 2;
 
          .carousel {
             cursor: grab;
@@ -37,11 +38,16 @@
                background-color: white;
 
                .item {
-                  min-width: 15rem;
-                  margin: 2rem 2rem;
+                  min-width: 18rem;
+                  margin: 2rem;
+                  padding: 0.5rem;
                   height: auto;
                   border-radius: 20px;
                   background-color: lightblue;
+
+                  p {
+                     text-align: center;
+                  }
                }
             }
          }
