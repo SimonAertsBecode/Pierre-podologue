@@ -1,27 +1,25 @@
 .functional-sole {
-   background-color: primaryColor(0.8);
    width: 90%;
-   min-height: 80vh;
-   margin-bottom: 4rem;
+   height: 100%;
    display: flex;
    flex-direction: column;
+   justify-content: space-evenly;
    font-size: 1.1rem;
-   position: relative;
 
    h3,
    h4 {
       text-align: center;
-      margin: 1rem 0 0 0;
       padding: 0;
    }
 
    .anamnese {
       width: 95%;
       min-height: 100%;
-      padding: 0 0 2rem 2rem;
+      padding-left: 2rem;
       display: flex;
       flex-direction: row;
       gap: 3rem;
+      margin-bottom: 3rem;
 
       .anamnese-steps {
          max-width: 50%;
@@ -30,22 +28,34 @@
          .carousel {
             cursor: grab;
             overflow: hidden;
-            height: min-content;
 
             .inner-carousel {
                display: flex;
                flex-direction: row;
-               background-color: white;
 
                .item {
-                  min-width: 18rem;
+                  display: flex;
+                  flex-direction: column;
+                  min-width: 17rem;
                   margin: 2rem;
                   padding: 0.5rem;
-                  height: auto;
+                  // height: auto;
                   border-radius: 20px;
-                  background-color: lightblue;
+                  background: rgb(110, 211, 244);
+                  background: linear-gradient(
+                     159deg,
+                     rgba(110, 211, 244, 0.5) 0%,
+                     rgba(255, 255, 255, 1) 68%
+                  );
+
+                  h5 {
+                     font-size: 1.3rem;
+                     text-align: center;
+                  }
 
                   p {
+                     align-items: center;
+                     justify-content: center;
                      text-align: center;
                   }
                }

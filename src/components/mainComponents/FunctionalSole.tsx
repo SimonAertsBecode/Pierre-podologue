@@ -76,7 +76,7 @@ const FunctionalSole = () => {
    }, []);
 
    const handleMouseEvent = (name: string, value: boolean) => {
-      setShowModal((prevState) => ({ ...prevState, [name]: { ['status']: value } }));
+      setShowModal((prevState) => ({ ...prevState, [name]: value }));
    };
 
    const renderLi = (title: string, name: string, text: string): JSX.Element => {
@@ -112,20 +112,22 @@ const FunctionalSole = () => {
                   whileTap={{ cursor: 'grabbing' }}
                   ref={carousel}
                >
-                  <motion.section
+                  <motion.ol
                      drag='x'
                      dragConstraints={{ right: 0, left: -width }}
                      className='inner-carousel'
                   >
-                     {diagSteps.map((step) => {
+                     {diagSteps.map((step, index) => {
                         return (
-                           <section key={step.title} className='item'>
-                              <h5>{step.title}</h5>
+                           <li key={step.title} className='item'>
+                              <h5>
+                                 {index + 1}) {step.title}
+                              </h5>
                               <p>{step.description}</p>
-                           </section>
+                           </li>
                         );
                      })}
-                  </motion.section>
+                  </motion.ol>
                </motion.section>
             </section>
             <section className='description'>
@@ -149,8 +151,8 @@ const FunctionalSole = () => {
                </p>
             </section>
          </section>
-         <h3>Confection de la semelle</h3>
          <section className='crafting'>
+            <h3>Confection de la semelle</h3>
             <section className='description'>
                <p>
                   Une fois l'examen biomécanique terminé, si le port d'une paire de semelles est
