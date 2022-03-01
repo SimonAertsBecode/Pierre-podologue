@@ -103,7 +103,6 @@
          min-width: 50%;
 
          ol {
-            background-color: yellow;
             display: flex;
             gap: 10rem;
 
@@ -112,11 +111,11 @@
                cursor: pointer;
                display: flex;
                flex-direction: column;
-               background-color: green;
 
                .modal {
-                  background-color: wheat;
                   height: 100%;
+                  background-color: darkblue;
+                  color: white;
                   width: auto;
                   margin-top: 1rem;
                   padding: 0.5rem;

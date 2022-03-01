@@ -1,58 +1,58 @@
-import { motion } from 'framer-motion';
-import { useState, useRef, useEffect } from 'react';
+import { useMemo } from 'react';
 
-//* import components
-import AnmneseModal from '../../modals/AnmneseModal';
+//*Import dependencies
+import { AnimatePresence, motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const craftStepsVariant = {
    visible: (i: number) => ({
       opacity: 1,
-      y: i * 10,
+      y: i * 20,
       transition: {
          delay: i * 0.3,
       },
    }),
-   hidden: { opacity: 0, y: '-100vh' },
+   hidden: (i: number) => ({ opacity: 0, y: '100vh', transition: { duration: i * 0.3 } }),
 };
 
+const craftSteps = [
+   {
+      title: "l'empreinte",
+      text: "sera faite en position corrigée du pied (position neutre de référence). Des repères anatomiques y seront préalablement posés afin d'être le plus précis possible dans les corrections ajoutées. Le scanner utilisé est un scanner 3D qui permet de prendre l'ensemble du pied et permet d'être plus précis dans les corrections.",
+   },
+   {
+      title: 'la Conceptualisation',
+      text: 'La conceptualisation de la paire de semelles sera faite via un logiciel 3D',
+   },
+   { title: 'Usinage', text: 'PHOTO' },
+   {
+      title: 'Finitions',
+      text: 'Adaptation de la semelle en fonction des spécifités du patient + PHOTP',
+   },
+];
+
 const Crafing = () => {
-   const [craftingStepsHeight, setCraftingStepsHeight] = useState(0);
-   const [craftingVisible, setCraftingVisible] = useState(false);
-
-   const modals = useRef<HTMLDivElement>(null);
-
-   useEffect(() => {
-      if (modals.current) setCraftingStepsHeight(modals.current?.offsetTop);
-   }, []);
-
-   const craftSteps = [
-      {
-         title: "l'empreinte",
-         text: "sera faite en position corrigée du pied (position neutre de référence). Des repères anatomiques y seront préalablement posés afin d'être le plus précis possible dans les corrections ajoutées. Le scanner utilisé est un scanner 3D qui permet de prendre l'ensemble du pied et permet d'être plus précis dans les corrections.",
-      },
-      {
-         title: 'la Conceptualisation',
-         text: 'La conceptualisation de la paire de semelles sera faite via un logiciel 3D',
-      },
-      { title: 'Usinage', text: 'PHOTO' },
-      {
-         title: 'Finitions',
-         text: 'Adaptation de la semelle en fonction des spécifités du patient + PHOTP',
-      },
-   ];
-
-   const scrollAnimation = () => {
-      console.log('coucou');
-      const { scrollY, innerHeight } = window;
-
-      if (craftingStepsHeight < scrollY + innerHeight) {
-         setCraftingVisible(true);
-      }
-   };
-
-   useEffect(() => {
-      console.log(craftingVisible);
+   const { ref: steps, inView } = useInView({
+      threshold: 0.4,
    });
+
+   const renderLi = useMemo(() => {
+      return craftSteps.map((step, i) => {
+         return (
+            <motion.li
+               variants={craftStepsVariant}
+               custom={i}
+               initial='hidden'
+               animate='visible'
+               exit='hidden'
+               key={step.title}
+            >
+               {step.title}
+               <section className='modal'>{step.text}</section>
+            </motion.li>
+         );
+      });
+   }, []);
 
    return (
       <section className='crafting'>
@@ -71,21 +71,10 @@ const Crafing = () => {
                corrections voulues et sont parfaitement reproductibles.
             </p>
          </section>
-         <section className='craft-steps' ref={modals}>
-            <ol onScroll={scrollAnimation}>
-               {craftSteps.map((step, index) => {
-                  return (
-                     craftingVisible && (
-                        <motion.li key={step.title} custom={index} variants={craftStepsVariant}>
-                           {step.title}
-                           <AnmneseModal craftingStepsHeight={craftingStepsHeight}>
-                              {step.text}
-                           </AnmneseModal>
-                        </motion.li>
-                     )
-                  );
-               })}
-            </ol>
+         <section className='craft-steps'>
+            <motion.ol ref={steps} initial='show'>
+               <AnimatePresence>{inView && renderLi}</AnimatePresence>
+            </motion.ol>
          </section>
       </section>
    );
