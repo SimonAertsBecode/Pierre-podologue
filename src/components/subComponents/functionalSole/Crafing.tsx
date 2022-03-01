@@ -1,8 +1,7 @@
-import { useMemo } from 'react';
+import { useMemo, useRef, useEffect, useState } from 'react';
 
 //*Import dependencies
 import { AnimatePresence, motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 
 const craftStepsVariant = {
    visible: (i: number) => ({
@@ -32,9 +31,21 @@ const craftSteps = [
 ];
 
 const Crafing = () => {
-   const { ref: steps, inView } = useInView({
-      threshold: 0.4,
-   });
+   const [liVisible, setLiVisible] = useState(false);
+
+   const olElement = useRef<HTMLOListElement>(null);
+
+   //** without react-intersection-observer npm */
+   useEffect(() => {
+      const observer = new IntersectionObserver(
+         (entries) => {
+            const entry = entries[0];
+            setLiVisible(entry.isIntersecting);
+         },
+         { threshold: 0.4 }
+      );
+      if (olElement.current) observer.observe(olElement.current);
+   }, []);
 
    const renderLi = useMemo(() => {
       return craftSteps.map((step, i) => {
@@ -72,8 +83,8 @@ const Crafing = () => {
             </p>
          </section>
          <section className='craft-steps'>
-            <motion.ol ref={steps} initial='show'>
-               <AnimatePresence>{inView && renderLi}</AnimatePresence>
+            <motion.ol ref={olElement} initial='show'>
+               <AnimatePresence>{liVisible && renderLi}</AnimatePresence>
             </motion.ol>
          </section>
       </section>
