@@ -6,12 +6,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 const craftStepsVariant = {
    visible: (i: number) => ({
       opacity: 1,
-      y: i * 20,
+      y: i * 30,
+      x: 0,
       transition: {
          delay: i * 0.3,
+         ease: [0.6, 0.1, -0.05, 0.95],
       },
    }),
-   hidden: (i: number) => ({ opacity: 0, y: '100vh', transition: { duration: i * 0.3 } }),
+   hidden: (i: number) => ({ opacity: 0, x: '-500vh', transition: { duration: i * 0.3 } }),
 };
 
 const craftSteps = [

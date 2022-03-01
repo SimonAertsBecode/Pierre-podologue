@@ -60,7 +60,13 @@ const Diagnostic = () => {
                      drag='x'
                      dragConstraints={{ right: 0, left: -carouselWidth }}
                      animate={{ x: [0, -40, 0] }}
-                     transition={{ delay: 4, duration: 0.5, type: 'spring' }}
+                     transition={{
+                        delay: 4,
+                        repeat: 1,
+                        repeatDelay: 0.1,
+                        duration: 0.5,
+                        type: 'spring',
+                     }}
                      className='inner-carousel'
                   >
                      {diagSteps.map((step, index) => {

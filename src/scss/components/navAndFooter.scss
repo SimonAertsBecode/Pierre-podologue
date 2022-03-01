@@ -3,7 +3,7 @@ nav {
    width: 100%;
    display: flex;
    justify-content: space-between;
-   margin-bottom: 3rem;
+   margin-bottom: 2rem;
 
    a {
       text-decoration: none;
@@ -65,7 +65,7 @@ footer {
    .rdv {
       display: flex;
       flex-direction: row;
-      height: 100%;
+      min-height: 100%;
       gap: 2rem;
 
       button {

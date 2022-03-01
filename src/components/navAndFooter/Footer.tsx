@@ -33,7 +33,11 @@ const Footer = () => {
          <section className='rdv'>
             <section className='left-rdv'>
                <button>
-                  <a target={'_blank'} rel='noreferrer' href='https://www.doctoranytime.be/d/podologue/pierre-leonard'>
+                  <a
+                     target={'_blank'}
+                     rel='noreferrer'
+                     href='https://www.doctoranytime.be/d/podologue/pierre-leonard'
+                  >
                      Rdv à Schaerbeek
                   </a>
                </button>
@@ -43,17 +47,25 @@ const Footer = () => {
                      bootstrapURLKeys={{ key: `${process.env.REACT_APP_API_KEY}` }}
                      defaultCenter={coordinate.Uccle}
                      defaultZoom={13}
-                     onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps, coordinate.Uccle.lat, coordinate.Uccle.lng)}
+                     onGoogleApiLoaded={({ map, maps }) =>
+                        renderMarkers(map, maps, coordinate.Uccle.lat, coordinate.Uccle.lng)
+                     }
                      yesIWantToUseGoogleMapApiInternals
                      onClick={() => {
-                        window.open(`https://maps.google.com?q=${coordinate.Schaerbeek.lat},${coordinate.Schaerbeek.lng}`);
+                        window.open(
+                           `https://maps.google.com?q=${coordinate.Schaerbeek.lat},${coordinate.Schaerbeek.lng}`
+                        );
                      }}
                   ></GoogleMapReact>
                </section>
             </section>
             <section className='right-rdv'>
                <button>
-                  <a target={'_blank'} rel='noreferrer' href='https://be.mobminder.com/e-resa.php?p=acmuleonard'>
+                  <a
+                     target={'_blank'}
+                     rel='noreferrer'
+                     href='https://be.mobminder.com/e-resa.php?p=acmuleonard'
+                  >
                      Rdv à Uccle
                   </a>
                </button>
@@ -63,10 +75,19 @@ const Footer = () => {
                      bootstrapURLKeys={{ key: `${process.env.REACT_APP_API_KEY}` }}
                      defaultCenter={coordinate.Schaerbeek}
                      defaultZoom={13}
-                     onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps, coordinate.Schaerbeek.lat, coordinate.Schaerbeek.lng)}
+                     onGoogleApiLoaded={({ map, maps }) =>
+                        renderMarkers(
+                           map,
+                           maps,
+                           coordinate.Schaerbeek.lat,
+                           coordinate.Schaerbeek.lng
+                        )
+                     }
                      yesIWantToUseGoogleMapApiInternals
                      onClick={() => {
-                        window.open(`https://maps.google.com?q=${coordinate.Uccle.lat},${coordinate.Uccle.lng}`);
+                        window.open(
+                           `https://maps.google.com?q=${coordinate.Uccle.lat},${coordinate.Uccle.lng}`
+                        );
                      }}
                   ></GoogleMapReact>
                </section>
