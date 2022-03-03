@@ -2,6 +2,52 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
+const diagSteps = [
+   {
+      title: 'Anamnese',
+      description:
+         "L'anamnèse permet de connaître le motif de la plainte, l'historique du patient, d'analyser ses différentes chaussures",
+   },
+   {
+      title: 'Analyse statique',
+      description:
+         "L'analyse statique permet de vérifier les différentes compensations (épaules, dos, hanche, genoux, pied)",
+   },
+   {
+      title: 'Examen palpatoire',
+      description:
+         "L'examen palpatoire permet la mise en évidence de certaines zones douloureuses afin de mieux cibler le traitement.",
+   },
+   {
+      title: 'Mesures biométriques',
+      description:
+         "Ces mesures permettent d'en apprendre plus sur les différentes mobilités du patient, sur la position idéale de son pied et serviront pour la modélisation de la semelle sur logiciel 3D.",
+   },
+   {
+      title: 'Analyse dynamique (marche, course)',
+      description:
+         "L'analyse de marche et course est une analyse de la cinématique (qualité du mouvement) et cinétique (quantification du mouvement) L'analyse de course permet également de savoir si la technique de course est adaptée aux plaintes du patient.",
+   },
+   {
+      title: 'Conseils spécifiques',
+      description:
+         "Conseils de chaussage, d'entraînement, de technique de course, d'échauffement, d'étirement, de renforcement. Souvent, une prise en charge pluridisciplinaire ciblée sera recommandée (kinésithérapie, ostéopathie, médecin du sport…)",
+   },
+];
+
+const dragVariant = {
+   show: {
+      x: [0, -40, 0],
+      transition: {
+         delay: 3,
+         repeat: 1,
+         repeatDelay: 0.1,
+         duration: 0.5,
+         type: 'spring',
+      },
+   },
+};
+
 const Diagnostic = () => {
    const [carouselWidth, setCarouselWidth] = useState(0);
    const carousel = useRef<HTMLDivElement>(null);
@@ -12,39 +58,6 @@ const Diagnostic = () => {
          setCarouselWidth(scrollWidth - offsetWidth);
       }
    }, []);
-
-   const diagSteps = [
-      {
-         title: 'Anamnese',
-         description:
-            "L'anamnèse permet de connaître le motif de la plainte, l'historique du patient, d'analyser ses différentes chaussures",
-      },
-      {
-         title: 'Analyse statique',
-         description:
-            "L'analyse statique permet de vérifier les différentes compensations (épaules, dos, hanche, genoux, pied)",
-      },
-      {
-         title: 'Examen palpatoire',
-         description:
-            "L'examen palpatoire permet la mise en évidence de certaines zones douloureuses afin de mieux cibler le traitement.",
-      },
-      {
-         title: 'Mesures biométriques',
-         description:
-            "Ces mesures permettent d'en apprendre plus sur les différentes mobilités du patient, sur la position idéale de son pied et serviront pour la modélisation de la semelle sur logiciel 3D.",
-      },
-      {
-         title: 'Analyse dynamique (marche, course)',
-         description:
-            "L'analyse de marche et course est une analyse de la cinématique (qualité du mouvement) et cinétique (quantification du mouvement) L'analyse de course permet également de savoir si la technique de course est adaptée aux plaintes du patient.",
-      },
-      {
-         title: 'Conseils spécifiques',
-         description:
-            "Conseils de chaussage, d'entraînement, de technique de course, d'échauffement, d'étirement, de renforcement. Souvent, une prise en charge pluridisciplinaire ciblée sera recommandée (kinésithérapie, ostéopathie, médecin du sport…)",
-      },
-   ];
 
    return (
       <>
@@ -59,14 +72,8 @@ const Diagnostic = () => {
                   <motion.ol
                      drag='x'
                      dragConstraints={{ right: 0, left: -carouselWidth }}
-                     animate={{ x: [0, -40, 0] }}
-                     transition={{
-                        delay: 4,
-                        repeat: 1,
-                        repeatDelay: 0.1,
-                        duration: 0.5,
-                        type: 'spring',
-                     }}
+                     animate='show'
+                     variants={dragVariant}
                      className='inner-carousel'
                   >
                      {diagSteps.map((step, index) => {

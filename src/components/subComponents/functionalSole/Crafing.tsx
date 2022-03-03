@@ -34,6 +34,7 @@ const craftSteps = [
 
 const Crafing = () => {
    const [liVisible, setLiVisible] = useState(false);
+   const [olHeightContainer, setOlHeightContainer] = useState<number>();
 
    const olElement = useRef<HTMLOListElement>(null);
 
@@ -43,6 +44,8 @@ const Crafing = () => {
          (entries) => {
             const entry = entries[0];
             setLiVisible(entry.isIntersecting);
+            if (entry.boundingClientRect.height > 10)
+               setOlHeightContainer(entry.boundingClientRect.height);
          },
          { threshold: 0.4 }
       );
@@ -85,9 +88,27 @@ const Crafing = () => {
             </p>
          </section>
          <section className='craft-steps'>
-            <motion.ol ref={olElement} initial='show'>
+            <motion.ol
+               ref={olElement}
+               initial='show'
+               style={{ height: olHeightContainer ? olHeightContainer : 'auto' }}
+            >
                <AnimatePresence>{liVisible && renderLi}</AnimatePresence>
             </motion.ol>
+         </section>
+         <section className='next-steps'>
+            <p>La suite et le suivi: </p>
+            <ul>
+               <li>
+                  Il faut compter deux semaines après l'examen biomécanique pour la remise de
+                  semelles.
+               </li>
+               <li>
+                  Une révision de vos semelles dans les 3 mois après leur réalisation est comprise
+                  dans le prix. Elle permettra de vérifier.
+               </li>
+               <li> Un bilan de contrôle 1 fois par an est conseillé.</li>
+            </ul>
          </section>
       </section>
    );

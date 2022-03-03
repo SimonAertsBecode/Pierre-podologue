@@ -97,6 +97,9 @@
          min-width: 50%;
          p {
             text-align: center;
+            span {
+               font-weight: bold;
+            }
          }
       }
 
@@ -133,6 +136,18 @@
                   }
                }
             }
+         }
+      }
+
+      .next-steps {
+         margin-top: 4rem;
+         p {
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+         }
+
+         li {
+            margin: 0.5rem 0;
          }
       }
    }
