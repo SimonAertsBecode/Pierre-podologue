@@ -1,13 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Modal from '../subComponents/modals/Modal';
+
+const description = [
+   {
+      title: "L'orthoplastie",
+      description: (
+         <>
+            <p>L'orthoplastie est une orthèse en silicone moulée sur mesure et destinée à:</p>
+            <ul>
+               <li>Corriger une déviation (Hallux valgus, orteils en griffes..)</li>
+               <li>Protéger une zone douloureuse</li>
+            </ul>
+         </>
+      ),
+   },
+   {
+      title: "L'orthonyxie",
+      description: (
+         <p>
+            L'orthonyxie est une orthèse unguéale destinée à corriger la courbure de l'ongle afin
+            d'éviter la réapparition d'un ongle incarné.
+         </p>
+      ),
+   },
+];
 
 const FootCare = () => {
-   //modal on click for span in description
+   const [modalVisible, setModalVisible] = useState(false);
+   const [dataForModal, setDateForModal] = useState(description[0]);
 
-   /* L’orthoplastie est une orthèse en silicone moulée sur mesure et destinée à:
-      Corriger une déviation (Hallux valgus, orteils en griffes..)
-      Protéger une zone douloureuse 
-      L’orthonyxie est une orthèse unguéale destinée à corriger la courbure de l’ongle afin d’éviter la réapparition d’un ongle incarné.*/
+   const renderModal = (index: number) => {
+      setDateForModal(description[index]);
+      setModalVisible(true);
+   };
+
    return (
       <section className='footcare-container'>
          <section className='description'>
@@ -15,12 +42,29 @@ const FootCare = () => {
                Le soin de pied (pédicure médicale) au cabinet ou à <span>domicile</span> comprend la
                prise en charge esthétique et/ou thérapeuthique de différentes{' '}
                <Link to='/pathologie'>pathologies</Link> liées directement aux atteintes spécifiques
-               du pied. Parfois, un appareillage spécifique via <span>orthoplastie</span>,
-               <span>orthonyxie</span> ou <span>semelles fonctionnelles</span> sera nécessaire pour
-               éviter la chronicité de ces pathologies.
+               du pied. Parfois, un appareillage spécifique via{' '}
+               <button
+                  onClick={() => {
+                     renderModal(0);
+                  }}
+               >
+                  orthoplastie
+               </button>
+               ,{' '}
+               <button
+                  onClick={() => {
+                     renderModal(1);
+                  }}
+               >
+                  orthonyxie
+               </button>{' '}
+               ou <span>semelles fonctionnelles</span> sera nécessaire pour éviter la chronicité de
+               ces pathologies.
             </p>
          </section>
-
+         <section className='modal'>
+            <Modal data={dataForModal} modalVisible={modalVisible} close={setModalVisible}></Modal>
+         </section>
          <section className='diabetic'>
             <h4>En cas de diabète</h4>
             <p>
