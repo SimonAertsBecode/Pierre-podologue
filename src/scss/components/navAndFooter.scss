@@ -69,14 +69,14 @@ footer {
       gap: 2rem;
 
       button {
-         background-color: #4c889b;
+         background-color: secondaryColor(0.8);
          border-radius: 20px;
-         border: solid 1px #4c889b;
+         border: solid 1px secondaryColor(1);
          padding: 5px;
 
          a {
             text-decoration: none;
-            color: black;
+            color: white;
             padding: 5px;
             font-size: 1rem;
          }

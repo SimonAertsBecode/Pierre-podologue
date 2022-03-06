@@ -51,18 +51,21 @@ const FootCare = () => {
                du pied. Parfois, un appareillage spécifique via{' '}
                {description.map((item, index) => {
                   return (
-                     <button
-                        key={item.title}
-                        onClick={(e) => {
-                           renderModal(index, e);
-                        }}
-                     >
-                        {item.title}
-                     </button>
+                     <>
+                        <button
+                           key={item.title}
+                           onClick={(e) => {
+                              renderModal(index, e);
+                           }}
+                        >
+                           {item.title}
+                        </button>
+                        ,{' '}
+                     </>
                   );
                })}
-               ou <span>semelles fonctionnelles</span> sera nécessaire pour éviter la chronicité de
-               ces pathologies.
+               ou <Link to='/semelle-fonctionnelle'>semelles fonctionnelles</Link> sera nécessaire
+               pour éviter la chronicité de ces pathologies.
             </p>
          </section>
 
