@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from '../subComponents/modals/Modal';
 
@@ -30,41 +30,44 @@ const FootCare = () => {
    const [modalVisible, setModalVisible] = useState(false);
    const [dataForModal, setDateForModal] = useState(description[0]);
 
-   const renderModal = (index: number) => {
+   const renderModal = (index: number, e: MouseEvent<HTMLButtonElement>) => {
+      e.stopPropagation();
       setDateForModal(description[index]);
       setModalVisible(true);
    };
 
    return (
-      <section className='footcare-container'>
+      <section
+         className='footcare-container'
+         onClick={() => {
+            setModalVisible(false);
+         }}
+      >
          <section className='description'>
             <p>
                Le soin de pied (pédicure médicale) au cabinet ou à <span>domicile</span> comprend la
                prise en charge esthétique et/ou thérapeuthique de différentes{' '}
                <Link to='/pathologie'>pathologies</Link> liées directement aux atteintes spécifiques
                du pied. Parfois, un appareillage spécifique via{' '}
-               <button
-                  onClick={() => {
-                     renderModal(0);
-                  }}
-               >
-                  orthoplastie
-               </button>
-               ,{' '}
-               <button
-                  onClick={() => {
-                     renderModal(1);
-                  }}
-               >
-                  orthonyxie
-               </button>{' '}
+               {description.map((item, index) => {
+                  return (
+                     <button
+                        key={item.title}
+                        onClick={(e) => {
+                           renderModal(index, e);
+                        }}
+                     >
+                        {item.title}
+                     </button>
+                  );
+               })}
                ou <span>semelles fonctionnelles</span> sera nécessaire pour éviter la chronicité de
                ces pathologies.
             </p>
          </section>
-         <section className='modal'>
-            <Modal data={dataForModal} modalVisible={modalVisible} close={setModalVisible}></Modal>
-         </section>
+
+         <Modal data={dataForModal} modalVisible={modalVisible} close={setModalVisible}></Modal>
+
          <section className='diabetic'>
             <h4>En cas de diabète</h4>
             <p>

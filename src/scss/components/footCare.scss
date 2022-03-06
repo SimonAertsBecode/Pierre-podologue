@@ -6,3 +6,41 @@
       font-weight: bold;
    }
 }
+
+.footcare-modal-container {
+   background-color: rgba($color: #000000, $alpha: 0.7);
+   backdrop-filter: blur(5px);
+   position: fixed;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   z-index: 1000;
+
+   .footcare-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      padding: 2rem;
+      border-radius: 20px;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      z-index: 1000;
+
+      button {
+         position: absolute;
+         right: 2%;
+         top: 5%;
+         border: none;
+         background-color: transparent;
+         font-weight: bold;
+         font-size: 1.2rem;
+         cursor: pointer;
+         transition: 0.5s;
+      }
+
+      button:hover {
+         transform: rotate(45deg) scale(1.2);
+      }
+   }
+}

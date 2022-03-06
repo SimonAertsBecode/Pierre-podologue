@@ -64,7 +64,7 @@ const Crafing = () => {
                key={step.title}
             >
                {step.title}
-               <section className='modal'>{step.text}</section>
+               <section className='craft-modal'>{step.text}</section>
             </motion.li>
          );
       });

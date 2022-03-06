@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
+import ReactDom from 'react-dom';
 
 interface dataInt {
    data: {
@@ -11,18 +12,22 @@ interface dataInt {
 
 const Modal: React.FC<dataInt> = ({ data, modalVisible, close }) => {
    if (!modalVisible) return null;
-   return (
-      <section className='footcare-modal'>
-         <button
-            onClick={() => {
-               close(false);
-            }}
-         >
-            X
-         </button>
-         <h4>{data.title}</h4>
-         {data.description}
-      </section>
+
+   return ReactDom.createPortal(
+      <section className='footcare-modal-container'>
+         <section className='footcare-modal' onClick={(e) => e.stopPropagation()}>
+            <button
+               onClick={() => {
+                  close(false);
+               }}
+            >
+               X
+            </button>
+            <h4>{data.title}</h4>
+            {data.description}
+         </section>
+      </section>,
+      document.getElementById('portal')!
    );
 };
 
