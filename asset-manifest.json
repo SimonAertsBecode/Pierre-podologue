@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Pierre-podologue/static/css/main.cd824178.css",
-    "main.js": "/Pierre-podologue/static/js/main.a19803e7.js",
+    "main.css": "/Pierre-podologue/static/css/main.b999a1f0.css",
+    "main.js": "/Pierre-podologue/static/js/main.3c8a5277.js",
     "index.html": "/Pierre-podologue/index.html",
-    "main.cd824178.css.map": "/Pierre-podologue/static/css/main.cd824178.css.map",
-    "main.a19803e7.js.map": "/Pierre-podologue/static/js/main.a19803e7.js.map"
+    "main.b999a1f0.css.map": "/Pierre-podologue/static/css/main.b999a1f0.css.map",
+    "main.3c8a5277.js.map": "/Pierre-podologue/static/js/main.3c8a5277.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd824178.css",
-    "static/js/main.a19803e7.js"
+    "static/css/main.b999a1f0.css",
+    "static/js/main.3c8a5277.js"
   ]
 }
