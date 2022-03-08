@@ -1,12 +1,40 @@
 .pathology {
-   ul {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+   height: 100vh;
 
-      li {
-         flex: 1;
-         list-style-type: none;
+   &-fctsole {
+      ul {
+         display: flex;
+         flex-direction: column;
+         padding: 0;
+
+         li {
+            flex: 1;
+            list-style-type: none;
+         }
+      }
+   }
+
+   &-others {
+      button {
+         background-color: primaryColor(1);
+         border: none;
+         border-radius: 20px;
+         padding: 0.5rem;
+         margin: 0 0.2rem;
+      }
+   }
+
+   .modal-container {
+      position: relative;
+      height: 300px;
+      background-color: yellow;
+
+      .pathology-modal-container {
+         background-color: red;
+         position: absolute;
+         top: 0;
+         left: 0;
+         height: 300px;
       }
    }
 }
