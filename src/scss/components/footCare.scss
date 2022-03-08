@@ -20,6 +20,10 @@
       line-height: 2rem;
       font-size: 1.2rem;
       letter-spacing: 0.1rem;
+      min-height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       button {
          background-color: transparent;
@@ -66,17 +70,12 @@
          background-color: primaryColor(0.4);
          padding: 1rem;
          border-radius: 20px;
+         display: flex;
+         flex-direction: column;
 
          ul {
             line-height: 1.8rem;
-
-            li {
-               transition: 0.5s;
-            }
-
-            li:hover {
-               transform: translateX(50px);
-            }
+            margin: 0;
          }
       }
    }

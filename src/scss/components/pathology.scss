@@ -1,0 +1,12 @@
+.pathology {
+   ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      li {
+         flex: 1;
+         list-style-type: none;
+      }
+   }
+}
