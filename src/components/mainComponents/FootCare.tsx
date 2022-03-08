@@ -1,5 +1,10 @@
 import { MouseEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
+
+//*react icons
+import { FaArrowDown } from 'react-icons/fa';
+
+//*Components import
 import Modal from '../subComponents/modals/Modal';
 
 const description = [
@@ -73,23 +78,23 @@ const FootCare = () => {
 
          <section className='diabetic'>
             <h4>En cas de diabète</h4>
-            <p>
-               Le patient diabétique doit se rendre au moins 2x par an chez le podologue afin de
-               vérifier les éventuelles complications liées au diabète.
-            </p>
-            <p>
-               En effet, un diabète mal équilibré peut donner certaines complications:{' '}
-               <span>Une neuropathie sensitive</span> (absence de douleur),{' '}
-               <span>Une arthériopathie</span> (retard dans la cicatrisation),{' '}
-               <span>Des déformations osseuses</span>.
-            </p>
+            <section className='diabetic-description'>
+               <p>
+                  Le patient diabétique doit se rendre au moins 2x par an chez le podologue afin de
+                  vérifier les éventuelles complications liées au diabète.
+               </p>
+               <p>
+                  En effet, un diabète mal équilibré peut donner certaines complications:{' '}
+                  <span>Une neuropathie sensitive</span> (absence de douleur),{' '}
+                  <span>Une arthériopathie</span> (retard dans la cicatrisation),{' '}
+                  <span>Des déformations osseuses</span>.
+               </p>
+            </section>
+            <section className='diabetic-icon'>
+               <FaArrowDown />
+            </section>
             <section className='diabetic-advices'>
                <ul>
-                  <li>
-                     Un diabète mal équilibré peut donner certaines complications (LA NEUROPATHIE
-                     SENSITIVE (absence de douleur), UNE MAUVAISE CIRCULATION (retard dans la
-                     cicatrisation), DES DÉFORMATIONS osseuses,
-                  </li>
                   <li>
                      Regarder tous les jours ses pieds (si pas possible, demander à un proche),
                      regarder si pas de plaies

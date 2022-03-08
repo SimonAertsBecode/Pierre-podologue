@@ -32,6 +32,54 @@
          cursor: pointer;
       }
    }
+
+   .diabetic {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      h4 {
+         font-size: 1.5rem;
+         text-decoration: underline;
+         padding: 0;
+         margin: 1rem 0 0 0;
+      }
+
+      &-description {
+         background-color: primaryColor(0.4);
+         padding: 1rem;
+         border-radius: 20px;
+      }
+
+      &-icon {
+         position: relative;
+         height: 2rem;
+
+         svg {
+            position: absolute;
+            top: 0px;
+            font-size: 2rem;
+         }
+      }
+
+      &-advices {
+         background-color: primaryColor(0.4);
+         padding: 1rem;
+         border-radius: 20px;
+
+         ul {
+            line-height: 1.8rem;
+
+            li {
+               transition: 0.5s;
+            }
+
+            li:hover {
+               transform: translateX(50px);
+            }
+         }
+      }
+   }
 }
 
 .footcare-modal-container {
