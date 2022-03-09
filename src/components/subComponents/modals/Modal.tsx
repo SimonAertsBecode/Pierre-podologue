@@ -2,12 +2,12 @@ import { Dispatch, SetStateAction } from 'react';
 import { dataInt } from '../../../interfaces/modalInterface';
 import ReactDom from 'react-dom';
 
-interface testData extends dataInt {
+interface modalInt extends dataInt {
    modalVisible: boolean;
    close?: Dispatch<SetStateAction<boolean>>;
 }
 
-const Modal: React.FC<testData> = ({ data, modalVisible, close, section }) => {
+const Modal: React.FC<modalInt> = ({ data, modalVisible, close, section }) => {
    if (!modalVisible) return null;
 
    return ReactDom.createPortal(

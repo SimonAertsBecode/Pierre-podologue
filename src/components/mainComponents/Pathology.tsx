@@ -1,8 +1,18 @@
-import { useState } from 'react';
-import Modal from '../subComponents/modals/Modal';
-import Section from '../subComponents/modals/Section';
+import { useEffect, useRef, useState } from 'react';
 
 const allDatasForModal = [
+   {
+      title: 'Pathologies traitées par une Orthoplastie',
+      description: (
+         <>
+            <li>Orteils en griffesosités</li>
+            <li>Hallux valgus</li>
+            <li>Orteils en marteaux</li>
+            <li>Orteils en griffes</li>
+            <li>Chevauchement d'orteils</li>
+         </>
+      ),
+   },
    {
       title: 'Pathologies traitées par un soin de pied',
       description: (
@@ -17,18 +27,6 @@ const allDatasForModal = [
       ),
    },
    {
-      title: 'Pathologies traitées par une Orthoplastie',
-      description: (
-         <>
-            <li>Orteils en griffesosités</li>
-            <li>Hallux valgus</li>
-            <li>Orteils en marteaux</li>
-            <li>Orteils en griffes</li>
-            <li>Chevauchement d'orteils</li>
-         </>
-      ),
-   },
-   {
       title: 'Pathologie traitées par une Orthonyxie',
       description: (
          <>
@@ -38,8 +36,26 @@ const allDatasForModal = [
    },
 ];
 
+const buttonContent = ['Orthoplastie', 'soin de pied', 'Orthonyxie'];
+
 const Pathology = () => {
    const [dataForModal, setDataForModal] = useState(allDatasForModal[0]);
+   const [activeBtn, setActiveBtn] = useState(0);
+   const [refWidht, setRefWidth] = useState<number>();
+
+   const contentSection = useRef<HTMLDivElement>(null);
+
+   useEffect(() => {
+      if (contentSection.current) {
+         let { offsetWidth } = contentSection.current;
+         setRefWidth(offsetWidth);
+      }
+   }, []);
+
+   const changeContent = (index: number) => {
+      setDataForModal(allDatasForModal[index]);
+      setActiveBtn(index);
+   };
 
    return (
       <section className='pathology'>
@@ -56,11 +72,28 @@ const Pathology = () => {
                <li>Maladies de croissance (maladie de Sever, Osgood Schlatt)</li>
             </ul>
          </section>
-         <section className='pathology-others'>
-            Voici différentes pathologies traitées par un <button>soin de pied</button>, <button>Orthoplastie</button>, <button>Orthonyxie</button>.
-         </section>
-         <section className='modal-container'>
-            <Section data={dataForModal} section='pathology' />
+
+         <section className='treatments'>
+            <section className='solutions'>
+               <p>Voici différentes pathologies traitées par</p>
+               {buttonContent.map((btn, index) => {
+                  return (
+                     <button
+                        onClick={() => {
+                           changeContent(index);
+                        }}
+                        className={index === activeBtn ? 'active' : undefined}
+                        key={btn}
+                     >
+                        {btn}
+                     </button>
+                  );
+               })}
+            </section>
+            <section className='for-what' ref={contentSection} style={{ width: refWidht }}>
+               <h4>{dataForModal.title}</h4>
+               <ul>{dataForModal.description}</ul>
+            </section>
          </section>
       </section>
    );
