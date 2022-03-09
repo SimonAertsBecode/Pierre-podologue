@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 //*icons
 import { BsArrowDownLeft, BsArrowDown, BsArrowDownRight } from 'react-icons/bs';
@@ -76,7 +77,7 @@ const Pathology = () => {
             </ul>
          </section>
 
-         <section className='pathology-oso'>
+         <motion.section className='pathology-oso' initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5 } }}>
             <section className='solutions'>
                <p>Les différentes pathologies traitées par</p>
                <section className='svgs'>
@@ -101,12 +102,12 @@ const Pathology = () => {
             </section>
 
             <section className='content'>
-               <section className='for-what' ref={contentSection} style={{ width: refWidht }}>
+               <motion.section className='for-what' ref={contentSection} style={{ width: refWidht }}>
                   <h4>{dataForModal.title}</h4>
                   <ul>{dataForModal.description}</ul>
-               </section>
+               </motion.section>
             </section>
-         </section>
+         </motion.section>
       </section>
    );
 };

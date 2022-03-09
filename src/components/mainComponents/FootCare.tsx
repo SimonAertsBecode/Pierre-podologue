@@ -65,7 +65,7 @@ const FootCare = () => {
             </p>
          </section>
 
-         <Modal data={dataForModal} modalVisible={modalVisible} close={setModalVisible} section='footcare'></Modal>
+         <Modal data={dataForModal} modalVisible={modalVisible} close={setModalVisible} link='pathologie'></Modal>
 
          <section className='diabetic'>
             <h4>En cas de diabète</h4>

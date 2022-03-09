@@ -1,18 +1,13 @@
-import { Dispatch, SetStateAction } from 'react';
 import { dataInt } from '../../../interfaces/modalInterface';
 import ReactDom from 'react-dom';
+import { Link } from 'react-router-dom';
 
-interface modalInt extends dataInt {
-   modalVisible: boolean;
-   close?: Dispatch<SetStateAction<boolean>>;
-}
-
-const Modal: React.FC<modalInt> = ({ data, modalVisible, close, section }) => {
+const Modal: React.FC<dataInt> = ({ data, modalVisible, close, link }) => {
    if (!modalVisible) return null;
 
    return ReactDom.createPortal(
-      <section className={`${section}-modal-container`}>
-         <section className={`${section}-modal`} onClick={(e) => e.stopPropagation()}>
+      <section className='modal-container'>
+         <section className='modal-content' onClick={(e) => e.stopPropagation()}>
             {close ? (
                <button
                   onClick={() => {
@@ -22,8 +17,15 @@ const Modal: React.FC<modalInt> = ({ data, modalVisible, close, section }) => {
                   X
                </button>
             ) : null}
-            <h4>{data.title}</h4>
+            <h3>{data.title}</h3>
             {data.description}
+            {link ? (
+               <>
+                  <p>
+                     Pour plus d'informations cf. section <Link to={`/${link}`}>{link}</Link>.
+                  </p>
+               </>
+            ) : null}
          </section>
       </section>,
       document.getElementById('portal')!

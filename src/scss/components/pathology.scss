@@ -1,6 +1,5 @@
 .pathology {
-   min-height: 100vh;
-   margin-bottom: 3rem;
+   min-height: 100%;
 
    p {
       text-align: center;
@@ -49,10 +48,10 @@
                position: relative;
             }
             :nth-child(1) {
-               left: 150px;
+               left: 250px;
             }
             :nth-child(3) {
-               left: -150px;
+               left: -250px;
             }
          }
          svg {
@@ -93,6 +92,7 @@
             background-color: primaryColor(1);
             color: black;
             border-radius: 20px;
+            height: 14rem;
             display: flex;
             flex-direction: column;
             align-items: center;

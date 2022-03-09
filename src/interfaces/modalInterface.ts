@@ -1,7 +1,11 @@
+import { Dispatch, SetStateAction } from 'react';
+
 export interface dataInt {
    data: {
       title: string;
       description: JSX.Element;
    };
-   section: string;
+   modalVisible: boolean;
+   close?: Dispatch<SetStateAction<boolean>>;
+   link?: string;
 }
