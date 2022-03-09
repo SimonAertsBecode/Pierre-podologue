@@ -1,58 +1,109 @@
 .pathology {
-   height: 100vh;
+   min-height: 100vh;
+   margin-bottom: 3rem;
+
+   p {
+      text-align: center;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      margin: 0;
+   }
 
    &-fctsole {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       ul {
          display: flex;
          flex-direction: column;
+         justify-content: center;
          padding: 0;
 
          li {
             flex: 1;
             list-style-type: none;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid secondaryColor(0.2);
+            line-height: 1.8rem;
          }
       }
    }
 
-   .treatments {
-      margin-top: 6rem;
+   &-oso {
+      margin-top: 5rem;
       .solutions {
          display: flex;
-         flex-direction: row;
+         flex-direction: column;
          gap: 2rem;
 
-         button {
-            background-color: transparent;
-            border: solid 2px primaryColor(1);
-            font-size: 1rem;
+         .svgs {
+            font-size: 4rem;
+            height: 5vh;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            transform: translateX(-45px);
+            svg {
+               position: relative;
+            }
+            :nth-child(1) {
+               left: 150px;
+            }
+            :nth-child(3) {
+               left: -150px;
+            }
+         }
+         svg {
+            transform: translateX(50px);
+         }
 
-            padding: 0.5rem;
-            margin: 0 0.2rem;
-            max-width: fit-content;
-            transition: 0.5s;
+         .buttons {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 2rem;
 
-            &.active {
-               background-color: primaryColor(1);
-               border-radius: 20px 20px 0 0;
+            button {
+               background-color: transparent;
+               border: solid 2px primaryColor(1);
+               font-size: 1rem;
+               padding: 0.5rem;
+               margin: 0 0.2rem;
+               cursor: pointer;
+               max-width: fit-content;
+               transition: 0.5s;
+
+               &.active {
+                  background-color: primaryColor(1);
+                  border-radius: 20px 20px 0 0;
+               }
             }
          }
       }
 
-      .for-what {
-         background-color: primaryColor(1);
-         color: black;
-         border-radius: 20px;
+      .content {
          display: flex;
-         flex-direction: column;
-         align-items: center;
-         justify-content: right;
-         width: fit-content;
-         margin: 0 0 0 auto;
-         padding: 0 2rem;
+         justify-content: center;
 
-         h4 {
-            font-size: 1.3rem;
-            margin: 1rem 0 0 0.5rem;
+         .for-what {
+            background-color: primaryColor(1);
+            color: black;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            padding: 0 2rem;
+
+            h4 {
+               font-size: 1.3rem;
+               margin: 1rem 0 0 0.5rem;
+            }
          }
       }
    }

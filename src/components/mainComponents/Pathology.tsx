@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
+//*icons
+import { BsArrowDownLeft, BsArrowDown, BsArrowDownRight } from 'react-icons/bs';
+
 const allDatasForModal = [
    {
       title: 'Pathologies traitées par une Orthoplastie',
@@ -60,7 +63,7 @@ const Pathology = () => {
    return (
       <section className='pathology'>
          <section className='pathology-fctsole'>
-            <p>Voici différentes pathologies pouvant être traitées par semelles fonctionnelles:</p>
+            <p>Les différentes pathologies pouvant être traitées par semelles fonctionnelles</p>
             <ul>
                <li>Douleurs aux pieds (talon, voute plantaire,plante du pied…)</li>
                <li>Tendinites des membres inférieurs</li>
@@ -73,26 +76,35 @@ const Pathology = () => {
             </ul>
          </section>
 
-         <section className='treatments'>
+         <section className='pathology-oso'>
             <section className='solutions'>
-               <p>Voici différentes pathologies traitées par</p>
-               {buttonContent.map((btn, index) => {
-                  return (
-                     <button
-                        onClick={() => {
-                           changeContent(index);
-                        }}
-                        className={index === activeBtn ? 'active' : undefined}
-                        key={btn}
-                     >
-                        {btn}
-                     </button>
-                  );
-               })}
+               <p>Les différentes pathologies traitées par</p>
+               <section className='svgs'>
+                  <BsArrowDownLeft /> <BsArrowDown /> <BsArrowDownRight />
+               </section>
+
+               <section className='buttons'>
+                  {buttonContent.map((btn, index) => {
+                     return (
+                        <button
+                           onClick={() => {
+                              changeContent(index);
+                           }}
+                           className={index === activeBtn ? 'active' : undefined}
+                           key={btn}
+                        >
+                           {btn}
+                        </button>
+                     );
+                  })}
+               </section>
             </section>
-            <section className='for-what' ref={contentSection} style={{ width: refWidht }}>
-               <h4>{dataForModal.title}</h4>
-               <ul>{dataForModal.description}</ul>
+
+            <section className='content'>
+               <section className='for-what' ref={contentSection} style={{ width: refWidht }}>
+                  <h4>{dataForModal.title}</h4>
+                  <ul>{dataForModal.description}</ul>
+               </section>
             </section>
          </section>
       </section>
