@@ -1,9 +1,6 @@
 import { MouseEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-//*react icons
-import { FaArrowDown } from 'react-icons/fa';
-
 //*Components import
 import Modal from '../subComponents/modals/Modal';
 
@@ -75,22 +72,6 @@ const FootCare = () => {
                   En effet, un diabète mal équilibré peut donner certaines complications: <span>Une neuropathie sensitive</span> (absence de douleur), <span>Une arthériopathie</span> (retard dans la cicatrisation),{' '}
                   <span>Des déformations osseuses</span>.
                </p>
-            </section>
-            <section className='diabetic-icon'>
-               <FaArrowDown />
-            </section>
-            <section className='diabetic-advices'>
-               <ul>
-                  <li>Regarder tous les jours ses pieds (si pas possible, demander à un proche), regarder si pas de plaies</li>
-                  <li>Ne pas marcher pieds nus quelles que soient les circonstances</li>
-                  <li>Ne coupez pas vos ongles seuls</li>
-                  <li>Signaler toute lésion ou coloration suspecte</li>
-                  <li>Appliquer une crème hydratante tous les jours sur vos pieds</li>
-                  <li>Faites appel à votre podologue pour soigner vos cors, durillons</li>
-                  <li>Attention aux sources de chaleur. N'utilisez pas de produits agressifs.</li>
-                  <li>Après la douche, sécher correctement vos pieds et insister dans les espaces entre les orteils pour éviter l'apparition de mycoses</li>
-                  <li>Changer de chaussettes tous les jours. Il est fortement conseillé d'utiliser des chaussettes en coton et sans couture pour éviter les blessures</li>
-               </ul>
             </section>
          </section>
       </section>
